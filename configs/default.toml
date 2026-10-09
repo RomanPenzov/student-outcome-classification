@@ -1,0 +1,6 @@
+data_path = "../data/raw/data.csv"
+output_dir = "../artifacts/run_1"
+seed = 42
+test_size = 0.2
+folds = 5
+download = false
