@@ -1,0 +1,4 @@
+{
+  "winner": "RandomForest",
+  "criterion": "mean CV macro F1"
+}

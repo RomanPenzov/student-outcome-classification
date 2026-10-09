@@ -1,0 +1,31 @@
+[project]
+name = "student-outcome-classification"
+version = "0.1.0"
+description = "Reproducible admission-time student outcome benchmark"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = ["numpy>=2.0,<3", "pandas>=2.2,<3", "scikit-learn>=1.8,<1.9",
+ "matplotlib>=3.9,<4", "joblib>=1.4,<2", "threadpoolctl>=3.5,<4",
+ "catboost>=1.2.8,<1.3", "lightgbm>=4.6,<5", "xgboost>=3,<4"]
+[project.scripts]
+student-outcome = "student_outcome.cli:main"
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+[tool.hatch.build.targets.wheel]
+packages = ["src/student_outcome"]
+[dependency-groups]
+dev = ["pytest>=8,<10", "pytest-cov>=6,<8", "ruff>=0.11", "ty>=0.0.1",
+ "ipykernel>=6", "nbformat>=5", "nbclient>=0.10"]
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+extend-exclude = ["notebooks/archive"]
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+[tool.ty.environment]
+python-version = "3.12"
+[tool.ty.src]
+include = ["src"]
